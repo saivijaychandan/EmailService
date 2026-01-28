@@ -1,10 +1,13 @@
 const express = require('express');
 const sendEmail = require('./utils/sendEmail');
 const app = express();
+require('dotenv').config();
 
 const INTERNAL_KEY = process.env.INTERNAL_API_KEY;
 
 app.use(express.json());
+
+app.get("/", (req, res) => res.send("API is running"));
 
 app.post('/send', async (req, res) => {
 
